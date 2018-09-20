@@ -25,7 +25,7 @@ class Users {
     var user = this.getUser(id);
     if (user) {
       this.users = this.users.filter(user => user.id !== id);
-    }   
+    }
 
     return user;
   }
@@ -36,6 +36,9 @@ class Users {
     var users = this.users.filter((user) => user.room === room);
     var namesArray = users.map((user) => user.name);
     return namesArray;
+  }
+  isNameAvailable(name, room) {
+    return !this.users.some(user => (user.name === name && user.room === room));
   }
 }
 
