@@ -20,12 +20,13 @@ function scrollToBottom() {
 socket.on('connect', function () {
   var params = jQuery.deparam(window.location.search);
 
+  if (!params.room && params.roomList) params.room = params.roomList;
+  delete params.roomList;
+
   socket.emit('join', params, function (err) {
     if (err) {
       alert(err);
       window.location.href = '/'; /*Redirect to homepage */
-    } else {
-      console.log('No error');
     }
   });
 });

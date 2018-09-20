@@ -1,16 +1,4 @@
-[{
-  id: '123dfsw',
-  name: 'Felix',
-  room: 'testRoom'
-}];
-
-// addUser(id, name, room)
-
-// removeUser(id)
-
-// getUser(id)
-
-// getUserList(room)
+const _ = require('lodash');
 
 class Users {
   constructor() {
@@ -40,6 +28,10 @@ class Users {
   isNameAvailable(name, room) {
     return !this.users.some(user => (user.name === name && user.room === room));
   }
+  getRoomList() {
+    var rooms = this.users.map(user => user.room);
+    return _.uniq(rooms);
+  }
 }
 
 module.exports = {Users};
@@ -63,3 +55,9 @@ module.exports = {Users};
 // var me = new Person('Felix', 25);
 // var description = me.getUserDescription();
 // console.log(description);
+
+// [{
+//   id: '123dfsw',
+//   name: 'Felix',
+//   room: 'testRoom'
+// }];

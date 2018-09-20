@@ -18,6 +18,8 @@ app.use(express.static(publicPath));
 io.on('connection', (socket) => {
   console.log('New user connected');
 
+  socket.emit('loadRooms', users.getRoomList());
+
   socket.on('join', (params, callback) => {
     if (!isRealString(params.name) || !isRealString(params.room)) {
       return callback('Name and room name are required');
@@ -65,8 +67,6 @@ io.on('connection', (socket) => {
     }
   });
 });
-
-
 
 server.listen(port, () => {
   console.log(`Server is running on port ${port}`);

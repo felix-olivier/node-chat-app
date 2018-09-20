@@ -19,8 +19,14 @@
         <input type="text" name="name" autofocus/>
       </div>
       <div class="form-field">
-        <label>Room name</label>
-        <input type="text" name="room"/>
+        <label>Create a new room</label>
+        <input type="text" name="room" placeholder="Room name"/>
+      </div>
+      <div class ="form-field">
+        <label>Or pick an existing room</label>
+        <select id="room-list" name="roomList">
+          <option value="OSRS">OSRS</option>
+        </select>
       </div>
       <div class="form-field">
         <button>Join</button>
@@ -28,6 +34,9 @@
     </form>
   </div>
 
+  <script src="/socket.io/socket.io.js"></script>
+  <script src='/js/libs/jquery-3.3.1.min.js'></script>
+  <script src="/js/index.js"> </script>
 </body>
 
 </html>
